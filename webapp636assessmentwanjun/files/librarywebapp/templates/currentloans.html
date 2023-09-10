@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Current Loans
+{% endblock %} 
+
+
+{% block content %}
+<!-- code in here to display a list of loans -->
+<!-- loanlist is the variable passed in containing list of loans -->
+
+
+<h2>Current Loans</h2>
+<h3>A List of book loan</h3>
+
+<table class=" table table-hover table-bordered">
+    <tr>
+        <th>First Name</th><th>Family Name</th><th>Book Copyid </th><th>Loan Date</th><th>Return Notice</th>
+        <th>Bookid</th><th>Book Title</th><th>Author</th><th>Category</th><th>Year of Publication</th><th>Format</th>
+    </tr>
+
+
+  <!-- use the jinjia namespace to do assignment in "for" loop later-->
+
+    {% set loannafirst=namespace(sign =0) %}
+    {% set loannafamily=namespace(sign =0) %}
+
+
+
+    <!-- the if class="table-warning","table-light","table-success" is the use of bootstraps to change color row according to loan[12]-->
+    {% for loan in loanlist %}
+    {% if loan[12]=="Audio Book" %}
+        <tr class="table-warning"> 
+    {% elif loan[12]=="Paperback" or loan[12]=="Hardcover"  %}
+        <tr class="table-light"> 
+    {% elif loan[12]=="eBook" %}
+        <tr class="table-success"> 
+    {% else %}
+        <tr> 
+    {% endif %}
+
+
+ <!-- borrower name will be showed only once-->
+    {% if loannafirst.sign != loan[1] or loannafamily.sign != loan[2] %} 
+        <td>{{loan[1]}}</td>
+        <td>{{loan[2]}}</td>
+        {% set loannafirst.sign = loan[1] %}
+        {% set loannafamily.sign = loan[2] %}
+        {% else %} 
+        <td></td>
+        <td></td>
+    {% endif %}
+         
+            
+    <td>{{loan[4]}}</td><td>{{loan[5]}}</td>
+
+
+
+<!-- indicate book loan condition"returned" and "unreturned"-->
+    {% if loan[6]==1  %}
+    <td>Returned</td>
+    {% elif loan[6]==0 %}
+    <td>On Loan</td>
+    {% else %}
+    <td>Returning state not clear</td>
+    {% endif %} 
+
+    <td>{{loan[7]}}</td><td>{{loan[8]}}</td><td>{{loan[9]}}</td><td>{{loan[10]}}</td><td>{{loan[11]}}</td>
+    <td>{{loan[12]}}</td>
+    </tr>
+    
+    {% endfor %}
+
+</table>
+
+{% endblock %}

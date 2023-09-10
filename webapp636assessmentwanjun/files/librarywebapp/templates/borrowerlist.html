@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+<!-- to show tab name"Borrower List" when opening web page -->
+{% block title %} 
+Borrower List
+{% endblock %} 
+
+
+{% block content %}
+<!-- code in here to display a list of borrowers -->
+<!-- borrowerlist is the variable passed in containing list of loans -->
+
+<h2>BORROWER MANAGEMENT</h2>
+
+
+<form  action="/searchborrower" method="post">
+  <div >
+ 
+      <label for="borrowersearch"></label><br>
+      <input type="text" id="borrowersearch" name="borrowersearch" placeholder="Name or BorrowerID" ><br><br>
+  
+      <input type="submit" value="SEARCH">
+
+  </div>
+   
+  
+</form>
+
+
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+<!-- to show tab name"Search Results " when opening web page -->
+{% block title %} 
+  BORROWER SUMMARY REPORT 
+{% endblock %} 
+
+{% block content %}
+<!-- code in here to generate serch results in a browser-->
+<h2>Borrower summary report </h2>
+
+
+<!-- class="table table-striped table-hover" is use of bootstrap library to make each row striped and hoverable -->
+<table class="table table-striped table-hover table-bordered">
+    <tr><th>Borrower ID</th><th>Firstname</th><th>Familyname</th><th>Loantimes</th></tr>
+    
+    {% for item in loanlist %}
+        <tr>
+            {% for entry in item %}
+                <td>{{entry}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    
+</table>
+
+{% endblock %}

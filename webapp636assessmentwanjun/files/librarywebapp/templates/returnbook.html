@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+<!-- to show tab name"Add Loan" when opening wbe page -->
+{% block title %} 
+RETURN BOOK
+{% endblock %} 
+
+
+
+{% block content %}
+<!-- borrowers is the variable passed in listing borrowers -->
+<!-- books is the variable passed in listing available books -->
+<!-- loandate is the variable passed in containing the current date -->
+<!-- name for the borrower dropdown borrower should be  borrower -->
+<!-- name for the book dropdown should be book-->
+<!-- name for the hidden field with date should be loandate -->
+<!-- URL for submission (action) of form should be loan/add -->
+
+
+
+<h2>Returning book</h2>
+
+ 
+ <form  class="row g-3" action="/book/return" method="post">
+
+    <div  class="col-md-6">
+
+           <!-- dropdown box for book sector  -->
+             <label for="bookcopyid" class="col-sm-2 col-form-label col-form-label-lg">Book:  </label>
+             <select class="form-select" name="bookcopyid" id="bookcopyid" required>
+                <option selected disabled value="">Choose...</option>
+
+
+                <!-- for loop used in Jinjia to display book elements:BOOKCOPY ID:book[0]; FORMAT:book[2]; BOOK TITLE: book[4] -->
+                 {% for book in books %}
+                 <option value={{book[0]}}>BOOKCOPY ID:/{{book[1]}} / BORROWER ID: {{book[2]}} / LOAN DATE: {{book[3]}}</option>
+
+                 {% endfor %}
+              </select>
+    </div>
+
+
+
+    <div class="class=col-12">
+    <button type="submit"   class="btn btn-primary"  id="addloaninfor" name="addloaninfor">Submit</button>
+    </div>
+          
+
+
+</form>
+
+
+{% endblock %}

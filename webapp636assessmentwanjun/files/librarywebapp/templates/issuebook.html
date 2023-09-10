@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+<!-- to show tab name"Add Loan" when opening wbe page -->
+{% block title %} 
+Add Loan
+{% endblock %} 
+
+
+
+{% block content %}
+<!-- borrowers is the variable passed in listing borrowers -->
+<!-- books is the variable passed in listing available books -->
+<!-- loandate is the variable passed in containing the current date -->
+<!-- name for the borrower dropdown borrower should be  borrower -->
+<!-- name for the book dropdown should be book-->
+<!-- name for the hidden field with date should be loandate -->
+<!-- URL for submission (action) of form should be loan/add -->
+
+
+
+<h2>Add Book Loan</h2>
+
+ 
+ <form  class="row g-3" action="/book/issue" method="post">
+    <div  class="col-md-6">
+
+        <!-- dropdown box for borrower sector  -->
+            <label for="borrower" class="col-sm-2 col-form-label col-form-label-lg">Borrower:  </label>
+            <select class="form-select" name="borrower" id="borrower" required>
+                <option selected disabled value="">Choose...</option>
+
+                
+                <!-- for loop used in Jinjia to display borrower elements:BORROWER ID:borrower[0];FIRST NAME:borrower[1];FAMILY NAME:borrower[2] -->
+                {% for borrower in borrowers %}
+                <option value={{borrower[0]}}>BORROWER ID:{{borrower[0]}} / FIRST NAME:{{borrower[1]}} / FAMILY NAME:{{borrower[2]}}
+
+                </option>
+                    
+                {% endfor %}
+             </select>
+    </div>
+
+
+
+    <div  class="col-md-6">
+
+           <!-- dropdown box for book sector  -->
+             <label for="bookcopyid" class="col-sm-2 col-form-label col-form-label-lg">Book:  </label>
+             <select class="form-select" name="bookcopyid" id="bookcopyid" required>
+                <option selected disabled value="">Choose...</option>
+
+
+                <!-- for loop used in Jinjia to display book elements:BOOKCOPY ID:book[0]; FORMAT:book[2]; BOOK TITLE: book[4] -->
+                 {% for book in books %}
+                 <option value={{book[0]}}>BOOKCOPY ID: {{book[0]}} / FORMAT: {{book[2]}} / BOOK TITLE: {{book[4]}}</option>
+
+                 {% endfor %}
+              </select>
+    </div>
+
+    <div class="class=col-12">
+    <button type="submit"   class="btn btn-primary"  id="addloaninfor" name="addloaninfor">Submit</button>
+    </div>
+          
+     <!-- a hidden input field is set to the current date-->
+    <input type="hidden"  id="loandate" name="loandate" value={{loandate}}>
+
+
+</form>
+
+
+{% endblock %}

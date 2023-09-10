@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+
+
+
+<!-- to show tab name"Borrower Search" when opening wbe page -->
+{% block title %} 
+Staff Search
+{% endblock %} 
+
+
+
+{% block content %}
+<!-- borrowers is the variable passed in listing borrowers -->
+<!-- books is the variable passed in listing available books -->
+<!-- loandate is the variable passed in containing the current date -->
+<!-- name for the borrower dropdown borrower should be  borrower -->
+<!-- name for the book dropdown should be book-->
+<!-- name for the hidden field with date should be loandate -->
+<!-- URL for submission (action) of form should be loan/add -->
+
+
+
+
+<h2> STAFF ENTRY INTERFACE </h2>
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary"  style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{ url_for('listborrower') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Borrower Management
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for('listborrower') }}">List Borrower</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('editborrower') }}">Update Borrower</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('addborrower') }}">Add Borrower</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('issuebook') }}">Issue Book</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('returnbook') }}">Return Book</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('overduereport') }}">Overdue Report</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('loansummaryreport') }}">Loan Summary Report</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('borrowersummaryreport') }}">Borrower Summary Report</a></li>
+           
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" action="/searchbook" method="post">
+        <input class="form-control me-2" type="search" placeholder="TITLE"  id="Ftitle" name="Ftitle" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="AUTHOR"  id="Fauthor" name="Fauthor" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"  value="SEARCHBOOK">Search Book</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<style>
+  body {
+    background-image: url(' https://www.wikihow.com/images/thumb/3/36/Become-a-Librarian-Step-9.jpg/aid45496-v4-1200px-Become-a-Librarian-Step-9.jpg   ');
+  }
+  </style>
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Overdue report
+{% endblock %} 
+
+
+{% block content %}
+<!-- code in here to display a list of loans -->
+<!-- loanlist is the variable passed in containing list of loans -->
+
+
+<h2>Overdue Report</h2>
+
+<table class=" table table-hover table-bordered">
+    <tr>
+        <th>First Name</th><th>Family Name</th><th>Borrower ID</th><th>Book Copyid </th><th>Loan Date</th>
+        <th>Book Title</th><th>Format</th><th>Days on loan</th>
+    </tr>
+
+
+  <!-- use the jinjia namespace to do assignment in "for" loop later-->
+
+    {% set loannafirst=namespace(sign =0) %}
+    {% set loannafamily=namespace(sign =0) %}
+    {% set loanborrowerid=namespace(sign =0) %}
+    <tr>
+    {% for loan in loanlist %}
+ <!-- borrower name will be showed only once-->
+    {% if loannafirst.sign != loan[0] or loannafamily.sign != loan[1] or loanborrowerid.sign != loan[2] %} 
+
+        <td>{{loan[0]}}</td>
+        <td>{{loan[1]}}</td>
+        <td>{{loan[2]}}</td>
+        {% set loannafirst.sign = loan[0] %}
+        {% set loannafamily.sign = loan[1] %}
+        {% set loanborrowerid.sign = loan[2] %}
+        {% else %} 
+        <td></td>
+        <td></td>
+        <td></td>
+    {% endif %}
+         
+    <td>{{loan[3]}}</td><td>{{loan[4]}}</td><td>{{loan[5]}}</td><td>{{loan[6]}}</td><td>{{loan[7]}}</td>
+</tr>
+    
+    {% endfor %}
+
+</table>
+
+{% endblock %}

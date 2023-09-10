@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+<!-- to show tab name"Borrower List" when opening web page -->
+{% block title %} 
+ADD BORROWER
+{% endblock %} 
+
+
+{% block content %}
+<!-- code in here to display a list of borrowers -->
+<!-- borrowerlist is the variable passed in containing list of loans -->
+
+<h2>Adding borrower list </h2>
+
+<form  class="row g-3" action="/borrower/add" method="post">
+
+                <div class="col-md-4">
+                  <label for="fname" class="form-label">First name</label>
+                  <input type="text"  class="form-control" id="fname" name="fname" placeholder="First name" aria-label="First name" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="lname" class="form-label">Last name</label>
+                  <input type="text" class="form-control"  id="lname" name="lname"  placeholder="Last name" aria-label="Last name" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="birthdate" class="form-label">Date of birth</label>
+                  <input type="text"  class="form-control" id="birthdate" name="birthdate" placeholder="year-month-date 1999-05-30" required>
+                </div>
+
+
+              
+              <div class="col-md-4">
+                <label for="housenumber" class="form-label">House number</label>
+                <input type="text"  class="form-control"   id="housenumber" name="housenumber" placeholder="Drive 22" required>
+              </div>
+
+              <div class="col-md-4">
+                <label for="postal" class="form-label">Postal Code</label>
+                <input type="text"  class="form-control" id="postal" name="postal" required>
+              </div>
+
+
+              <div class="col-md-4">
+                <label for="street" class="form-label">Street</label>
+                <input type="text" class="form-control" id="street" name="street" required>
+              </div>
+              <div class="col-md-4">
+                <label for="town" class="form-label">Town</label>
+                <input type="text"  class="form-control" id="town" name="town" required>
+              </div>
+              <div class="col-md-4">
+                <label for="city" class="form-label">City</label>
+                <input type="text"  class="form-control" id="city" name="city" required>
+              </div>
+
+             
+
+
+              <div class= "col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                  <label class="form-check-label" for="gridCheck">
+                    Check before you submit
+                  </label>
+                </div>
+              </div>
+        
+
+
+            <div class="col-12">
+             <button type="submit"   class="btn btn-primary"  id="addloaninfor" name="addloaninfor">Add</button>
+            </div>
+              
+
+    
+    
+    </form>
+
+
+
+
+
+
+{% endblock %}
+

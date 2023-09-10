@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+
+
+
+<!-- to show tab name"Borrower Search" when opening wbe page -->
+{% block title %} 
+Borrower Search Result
+{% endblock %} 
+
+
+
+{% block content %}
+<!-- borrowers is the variable passed in listing borrowers -->
+<!-- books is the variable passed in listing available books -->
+<!-- loandate is the variable passed in containing the current date -->
+<!-- name for the borrower dropdown borrower should be  borrower -->
+<!-- name for the book dropdown should be book-->
+<!-- name for the hidden field with date should be loandate -->
+<!-- URL for submission (action) of form should be loan/add -->
+
+
+
+
+<h2> BORROWER LIST</h2>
+
+
+<!-- class="table table-striped table-hover" is use of bootstrap library to make each row striped and hoverable -->
+<table class="table table-striped table-hover table-bordered">
+
+    <!-- to show column names for the table -->
+    <tr><th>Borrower Id</th><th>First Name</th><th>Family Name</th><th>Date Of Birth</th>
+        <th>House Number Name</th><th>Street</th><th>Town</th><th>City</th><th>Postal Code</th></tr>
+
+      <!-- the varible "borrower" and "entry" in "for" loop are used to display database information in a proper format  -->
+    {% for borrower in borrowerlist %}
+        <tr>
+            {%for entry in borrower%}
+            <td>{{entry}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+
+{% endblock %}
+
+
+
+
+

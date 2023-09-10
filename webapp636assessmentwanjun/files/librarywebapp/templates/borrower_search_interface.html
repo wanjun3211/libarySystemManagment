@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+
+
+<!-- to show tab name"Borrower Search" when opening wbe page -->
+{% block title %} 
+Borrower Search
+{% endblock %} 
+
+
+
+{% block content %}
+<!-- borrowers is the variable passed in listing borrowers -->
+<!-- books is the variable passed in listing available books -->
+<!-- loandate is the variable passed in containing the current date -->
+<!-- name for the borrower dropdown borrower should be  borrower -->
+<!-- name for the book dropdown should be book-->
+<!-- name for the hidden field with date should be loandate -->
+<!-- URL for submission (action) of form should be loan/add -->
+
+
+
+
+<h2> BOOK SEARCH </h2>
+
+
+ <form   action="/searchbook" method="post">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <label for="Ftitle">TITLE:</label><br>
+            <input type="text" id="Ftitle" name="Ftitle"><br><br>
+            <label for="Fauthor">AUTHOR:</label><br>
+            <input type="text" id="Fauthor" name="Fauthor"><br><br>
+            <input type="submit" value="SEARCH">
+        </div>
+        <div class="col-4"></div>
+    </div>
+</form>
+
+
+
+
+<style>
+    body {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmp9TXQMwM7nBGQgrTR6EngfsSXx385Hyi-w&usqp=CAU');
+    }
+    </style>
+
+
+
+
+{% endblock %}
