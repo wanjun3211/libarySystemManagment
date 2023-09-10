@@ -17,3 +17,6 @@ This is a library management web app where borrowers could borrow book and libra
 ## What the web app looks like
 borrower page
 ![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/1.PNG)
+
+librarian management page
+![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/1.PNG)
