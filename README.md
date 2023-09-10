@@ -20,3 +20,7 @@ borrower page
 
 librarian management page
 ![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/2.PNG)
+
+borrower summary information page
+![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/3.PNG)
+
