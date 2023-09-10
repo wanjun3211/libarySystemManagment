@@ -19,4 +19,4 @@ borrower page
 ![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/1.PNG)
 
 librarian management page
-![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/1.PNG)
+![alt text](https://github.com/wanjun3211/libarySystemManagment/blob/main/2.PNG)
